@@ -10,7 +10,7 @@ It’s also possible to use Installomator : https://github.com/Installomator/Ins
 
 
 
-FRANCAIS
+# FRANCAIS
 
 Dropbox recommande explicitement que sur macOS, lorsqu’un utilisateur n’a pas de droits administrateur, l’application soit installée dans le dossier /Users/[nom_utilisateur]/Applications plutôt que dans le dossier global /Applications du système.
 
@@ -25,3 +25,17 @@ PKG d'installation ici : https://help.dropbox.com/fr-fr/installs/enterprise-inst
 
 il est possible aussi d'utiliser Installomator : https://github.com/Installomator/Installomator.​
 
+
+# Stop auto update 
+```
+launchctl list | grep dropbox
+81990	0	application.com.getdropbox.dropbox.247.248650208
+-	    0	com.dropbox.DropboxUpdater.wake			<----
+82038	0	com.getdropbox.dropbox.dbkextd
+
+launchctl remove com.dropbox.DropboxUpdater.wake
+
+launchctl list | grep dropbox
+81990	0	application.com.getdropbox.dropbox.247.248650208
+82038	0	com.getdropbox.dropbox.dbkextd
+```
